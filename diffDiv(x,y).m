@@ -1,12 +1,15 @@
 function [d]=diffDiv(x,y)
 n=5;
-for i=1:n
-d(i) = y(i);
-end
+d=y;
+w=y;
 for k=2:n
-for  i = n:k
-d(i)= (d(i) - d(i -1)) ./ (x(i) - x(i - k+1));
+  for j=k:n
+    w(j)=(d(j)-d(j-1))/x(j)-x(j-(k-1)));
+  endfor
+  for j=k:n
+    d(j)=w(j);
+  endfor
 end
 end
-end
+
 
